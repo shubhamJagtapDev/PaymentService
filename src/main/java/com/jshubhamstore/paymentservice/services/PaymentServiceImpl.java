@@ -21,7 +21,7 @@ public class PaymentServiceImpl implements PaymentService {
 
     @Override
     public String getPaymentLink(Long amount, String orderId, String phoneNumber, String name, String email) throws RazorpayException {
-        paymentGateway = paymentGatewayChooserStrategy.getCurrentBestPaymentGateway();
+        paymentGateway = paymentGatewayChooserStrategy.getCurrentBestPaymentGateway(true);
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.MINUTE, 30);
         long expiryTimeInMills = calendar.getTimeInMillis();
